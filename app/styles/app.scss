@@ -1,0 +1,99 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+
+/*
+ * Styles
+ */
+
+.container {
+  max-width: 100%;
+}
+
+body {
+  background-color: $gray-200;
+}
+
+/*
+ * Form Styles
+ */
+
+.row form {
+  margin: auto;
+  padding: 15px;
+  margin-top: 50px;
+  border: 1px solid #333;
+  background-color: $navbar-light-color;
+  border-radius: 7px;
+  color: white;
+  overflow: hidden;
+
+  label {
+    padding: 5px;
+    width: 100%;
+    max-width: 100%;
+
+    input {
+      max-width: 100%;
+    }
+  }
+}
+
+.btn-container {
+  float: right;
+}
+
+form button[role='button'] {
+  @include button-variant($dark, $dark, $white);
+  @include button-size(5px, 5px, 20px, $btn-border-radius-lg);
+  margin-top: 15px;
+}
+/*
+* Modules Styles
+*/
+ul[role='menu'].horizontal {
+  list-style-type: none;
+  flex-direction: row;
+  display: flex;
+  li {
+    margin-left: 5px;
+  }
+  &[aria-label='Sections'] li{
+    display: flex;
+  }
+}
+
+.modules-menu {
+  max-height: 100%;
+  nav ul[role='menu'] {
+    list-style-type: none;
+    li[role='separator'] {
+      padding-bottom: $breadcrumb-margin-bottom;
+    }
+    a {
+      text-decoration: none;
+      color: $dark;
+    }
+  }
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  padding-right: 15px;
+  a {
+    text-decoration: none;
+    color: $dark;
+  }
+}
+/*
+* Icon styles
+*/
+.mdi.warning:link, .mdi.warning:visited {
+  color: $danger;
+}
+.mdi.warning:hover, .mdi.warning:focus {
+  color: lighten($danger, 10%);
+}
+
+@import "ember-bootstrap/bootstrap";

@@ -1,0 +1,42 @@
+<main class='row justify-content-center'>
+  <div class='col-lg-6'>
+    <h1>Edit {{@model.name}}</h1>
+    <form {{on 'submit' this.updateModule}} {{on 'reset' this.resetModule}}>
+      <div class='form-group'>
+        <label class={{if this.errorCode this.classLabel}}>Code
+          <Input
+            type='text'
+            class='form-control {{if this.errorCode this.classInput}}'
+            @value={{@model.code}}
+          />
+          {{#if this.errorCode}}
+            <span class={{this.classSpan}}>{{this.errorCode}}</span>
+          {{/if}}
+        </label>
+        <label class={{if this.errorName this.classLabel}}>Name
+          <Input
+            type='text'
+            class='form-control {{if this.errorName this.classInput}}'
+            @value={{@model.name}}
+          />
+          {{#if this.errorName}}
+            <span class={{this.classSpan}}>{{this.errorName}}</span>
+          {{/if}}
+        </label>
+        <label class={{if this.errorSemester this.classLabel}}>Semester
+          <select onchange={{action 'setSemester' value='target.value'}}>
+            <option value='WS18/19' selected={{eq @model.semester "WS18/19"}}>Wintersemester 18/19</option>
+            <option value='SS18' selected={{eq @model.semester "SS18"}}>Summersemester 18</option>
+          </select>
+          {{#if this.errorSemester}}
+            <span class={{this.classSpan}}>{{this.errorSemester}}</span>
+          {{/if}}
+        </label>
+      </div>
+      <div class="btn-container">
+        <button type='reset' class='btn btn-secondary'>Don't Update</button>
+        <button type="submit" role="button">Update</button>
+      </div>
+    </form>
+  </div>
+</main>

@@ -1,0 +1,20 @@
+<div class="container">
+  <header class="row">
+    <nav class="navbar navbar-dark bg-dark" aria-label="Main">
+      <ul class='navbar-nav horizontal' role='menu' aria-label='Main'>
+          <li class='navbar-brand'>Athena - Study Portal</li>
+          <li><LinkTo @route='modules' role='menuitem' tabindex='0' class='nav-link'>My
+              Modules</LinkTo></li>
+          <li><a href='' role='menuitem' tabindex='-1' class='nav-link'>My Exams</a></li>
+      </ul>
+      <ul class="navbar-nav horizontal" aria-label="User" role="menu">
+        <li class="nav-item">
+          <LinkTo @route="users.register" class="nav-link" tabindex="0">Register</LinkTo>
+        </li>
+        <li class="nav-item">
+          <LinkTo @route="login" class="nav-link" role="menuitem" tabindex="-1">Login</LinkTo>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>

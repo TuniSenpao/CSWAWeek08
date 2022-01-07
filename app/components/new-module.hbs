@@ -1,0 +1,42 @@
+<main class='row justify-content-center'>
+    <div class='col-lg-6'>
+        <h1>Create new Module</h1>
+        <form {{on 'submit' this.createModule}}>
+        <div class='form-group'>
+            <label class={{if this.errorCode this.classLabel}}>Code
+            <Input
+                type='text'
+                class='form-control {{if this.errorCode this.classInput}}'
+                @value={{this.newCode}}
+            />
+            {{#if this.errorCode}}
+                <span class={{this.classSpan}}>{{this.errorCode}}</span>
+            {{/if}}
+            </label>
+            <label class={{if this.errorName this.classLabel}}>Name
+            <Input
+                type='text'
+                class='form-control {{if this.errorName this.classInput}}'
+                @value={{this.newName}}
+            />
+            {{#if this.errorName}}
+                <span class={{this.classSpan}}>{{this.errorName}}</span>
+            {{/if}}
+            </label>
+            <label class={{if this.errorSemester this.classLabel}}>Semester
+            <select onchange={{action 'setNewSemester' value='target.value'}}>
+                <option value='WS18/19'>Wintersemester 18/19</option>
+                <option value='SS18'>Summersemester 18</option>
+            </select>
+            {{#if this.errorSemester}}
+                <span class={{this.classSpan}}>{{this.errorSemester}}</span>
+            {{/if}}
+            </label>
+        </div>
+        <div class="btn-container">
+            <LinkTo @route='modules' class='btn btn-secondary'>Don't create</LinkTo>
+            <button type="submit" role="button">Create</button>
+        </div>
+        </form>
+    </div>
+</main>

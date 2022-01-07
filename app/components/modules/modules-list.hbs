@@ -1,0 +1,54 @@
+<section class='col-lg-9 col-md-10 bg-light'>
+  <table>
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Sections</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each @modules as |module|}}
+        <tr>
+          <td>
+            <LinkTo @route="modules.view" @model={{module.id}}>{{module.code}}</LinkTo>
+          </td>
+          <td>
+            <LinkTo @route="modules.view" @model={{module.id}}>{{module.name}}</LinkTo>
+          </td>
+          <td>
+            <nav aria-label="Sections of Client-seitige Web-Anwendungen">
+              <ul role='menu' class='horizontal' aria-label='Sections'>
+                {{#each-in module.sections as |action display|}}
+                  <li>
+                    <a href='' role='menuitem' aria-label={{display.title}} title={{display.title}} class={{display.icon}} tabindex='0'></a>
+                  </li>
+                {{/each-in}}
+              </ul>
+            </nav>
+          </td>
+          <td>
+            <nav aria-label='Actions for {{module.name}}'>
+              <ul role='menu' class='horizontal' aria-label='Actions'>
+                {{#each-in module.actions as |actions display|}}
+                  <li>
+                    <a
+                      onclick={{action display.action module}}
+                      role='menuitem'
+                      aria-label={{display.title}}
+                      title={{display.title}}
+                      class={{display.icon}}
+                      tabindex='0'
+                    >
+                    </a>
+                  </li>
+                {{/each-in}}
+              </ul>
+            </nav>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>

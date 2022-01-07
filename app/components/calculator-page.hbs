@@ -1,0 +1,35 @@
+<h1>Calculator</h1>
+<form {{on "submit" this.calculate}}>
+  <Input @type="number" @value={{a}} name="a" {{on "keypress" this.typing}} {{on "change" this.typing}} />
+  <select onchange={{action selectOperator value="target.value"}}>
+      <option>+</option>
+      <option>-</option>
+      <option>*</option>
+      <option>/</option>
+      <option>%</option>
+  </select>
+  <Input @type="number" @value={{b}} name="b" {{on "keypress" this.typing}} {{on "change" this.typing}} />
+  <button class="button" type="submit">Calculate</button>
+</form>
+
+{{#if this.showResult }}
+  <div id="result">
+    <h2>Result</h2>
+    {{a}} {{lastOperator}} {{b}} = {{result}}
+  </div>
+{{/if}}
+
+{{#if history}}
+  <div id="history">
+    <h2>History</h2>
+    <ul>
+      {{#each history as |item|}}
+      <li>
+        <a {{action recalculate item}}>
+          {{item.a}} {{item.operator}} {{item.b}} = {{item.result}}
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}

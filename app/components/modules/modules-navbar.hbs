@@ -1,0 +1,18 @@
+<div class="modules-menu col-lg-3 col-md-2 bg-light">
+  <h1>My Modules</h1>
+  <nav class="navbar navbar-light" aria-label="Modules">
+    <ul role="menu" aria-label="Modules">
+      <li>
+          <LinkTo @route="modules" @query={{hash semester="WS18/19"}} tabindex="0" role="menuitem">Current Semester</LinkTo>
+      </li>
+      <li>
+          <LinkTo @route="modules" @query={{hash semester="SS18"}} tabindex="-1" role="menuitem">Last Semester</LinkTo>
+      </li>
+      <li role="separator"></li>
+      <li><a href="" tabindex="-1" role="menuitem">Enroll in Module</a></li>
+      <li>
+          <LinkTo @route="modules.new">Create a new Module</LinkTo>
+      </li>
+    </ul>
+  </nav>
+</div>

@@ -1,0 +1,46 @@
+<main class='row justify-content-center'>
+    <form class='col-lg-6' {{on 'submit' this.createUser}}>
+        <h1>Register</h1>
+        <div class='form-group'>
+        <label class='label {{if this.errorMail this.classLabel}}'>E-Mail Address
+            <Input class='form-control {{if this.errorMail this.classInput}}' type='text' @value={{this.newEmail}} />
+            {{#if this.errorMail}}
+            <span class={{this.classSpan}}>{{this.errorMail}}</span>
+            {{/if}}
+        </label>
+        </div>
+        <div class='form-group'>
+
+        <label class='label {{if this.errorFirstName 'text-danger'}}'>First Name
+            <Input type='text' class='form-control {{if this.errorFirstName this.classInput}}' @value={{this.newFirstName}} />
+            {{#if this.errorFirstName}}
+            <span
+                class={{this.classSpan}}
+            >{{this.errorFirstName}}</span>
+            {{/if}}
+        </label>
+        </div>
+        <div class='form-group'>
+        <label class='label {{if this.errorLastName 'text-danger'}}'>Last Name
+            <Input type='text' class='form-control {{if this.errorLastName this.classInput}}' @value={{this.newLastName}} />
+            {{#if this.errorLastName}}
+            <span class={{this.classSpan}}>{{this.errorLastName}}</span>
+            {{/if}}
+        </label>
+        </div>
+        <div class='form-group'>
+        <label class='label {{if this.errorRole 'text-danger'}}'>Role
+            <select class={{if this.errorRole this.classInput}} onchange={{action 'setNewRole' value='target.value'}}>
+            <option value='student'>Student</option>
+            <option value='teacher'>Teacher</option>
+            </select>
+            {{#if this.errorRole}}
+            <span class={{this.classSpan}}>{{this.errorRole}}</span>
+            {{/if}}
+        </label>
+        </div>
+        <div class='btn-container'>
+        <button role='button' type='submit'>Register</button>
+        </div>
+    </form>
+</main>
