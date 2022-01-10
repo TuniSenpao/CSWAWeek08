@@ -1,0 +1,52 @@
+<main class="grid-container">
+  <div class="grid-x grid-padding-x">
+    <h1 class="cell">My Rooms</h1>
+  </div>
+  <div class="grid-x grid-padding-x">
+    <nav class="cell shrink" aria-label="Rooms">
+      <ul role="menu" aria-label="Rooms">
+        <li>
+          <LinkTo @route="rooms.new">Create a new Room</LinkTo>
+        </li>
+      </ul>
+    </nav>
+    <section class="cell auto">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Capacity</th>
+            <th>Features</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each @model as |room|}}
+          <tr>
+            <td>
+              <LinkTo @route="rooms.view" @model={{room.id}}>{{room.name}}</LinkTo>
+            </td>
+            <td>{{room.address}}</td>
+            <td>{{room.capacity}}</td>
+            <td>{{room.features}}</td>
+            <td>
+              <nav aria-label="Actions for {{room.name}}">
+                <ul role="menu" class="horizontal" aria-label="Actions">
+                  {{#each-in room.actions as |actions display|}}
+                  <li>
+                    <a onclick={{action display.action room}} role="menuitem" aria-label={{display.title}}
+                      title={{display.title}} class={{display.icon}} tabindex="0"></a>
+                  </li>
+                  {{/each-in}}
+                </ul>
+              </nav>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </section>
+  </div>
+</main>

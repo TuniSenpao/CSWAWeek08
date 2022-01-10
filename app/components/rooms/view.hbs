@@ -1,0 +1,18 @@
+<main class="grid-container">
+  <div class="grid-x grid-padding-x">
+    <div class="cell">
+      <h1>{{@model.name}}</h1>
+      <dl>
+        <dt>Address</dt>
+        <dd><address>{{@model.address}}</address></dd>
+        <dt>Capacity</dt>
+        <dd>{{@model.capacity}} Person/s</dd>
+        <dt>Features</dt>
+        <dd>{{@model.features}}</dd>
+      </dl>
+      <div>
+        <LinkTo @route="rooms.edit" @model={{@model.id}}>Edit</LinkTo>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,39 @@
+<main class="grid-container">
+  <div class="grid-x grid-padding-x">
+    <h1 class="cell">Edit {{@model.name}}</h1>
+  </div>
+  <form class="grid-x grid-padding-x" {{on "submit" this.updateRoom}} {{on "reset" this.resetRoom}}>
+    <div class="cell large-4">
+      <label>Name
+        <Input type="text" @value={{@model.name}} />
+        {{#if errorName}}
+        <span class="form-error is-visible">{{this.errorName}}</span>
+        {{/if}}
+      </label>
+      <label>Address
+        <Input input type="text" @value={{@model.address}} />
+        {{#if errorAddress}}
+        <span class="form-error is-visible">{{this.errorAddress}}</span>
+        {{/if}}
+      </label>
+      <label>Capacity
+        <Input input type="number" @value={{@model.capacity}} />
+        {{#if errorCapacity}}
+        <span class="form-error is-visible">{{this.errorCapacity}}</span>
+        {{/if}}
+      </label>
+      <label>Features
+        <Input input type="text" @value={{@model.features}} />
+        {{#if errorFeatures}}
+        <span class="form-error is-visible">{{this.errorFeatures}}</span>
+        {{/if}}
+      </label>
+      <div class="text-right">
+        <button type="reset" class="button secondary">
+          Don't Update
+        </button>
+        <button type="submit" class="button">Update</button>
+      </div>
+    </div>
+  </form>
+</main>
