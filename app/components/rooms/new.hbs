@@ -5,25 +5,25 @@
   <form class="grid-x grid-padding-x" {{on 'submit' this.createRoom}}>
     <div class="cell large-4">
       <label>Name
-        <Input type="text" @value={{this.newName}} />
+        <Input type="text" @value={{this.newName}} name='name' />
         {{#if this.errorName}}
         <span class="form-error is-visible">{{this.errorName}}</span>
         {{/if}}
       </label>
       <label>Address
-        <Input input type="text" @value={{this.newAddress}} />
+        <Input input type="text" @value={{this.newAddress}} name='address' />
         {{#if this.errorAddress}}
         <span class="form-error is-visible">{{this.errorAddress}}</span>
         {{/if}}
       </label>
       <label>Capacity
-        <Input input type="number" @value={{this.newCapacity}} />
+        <Input input type="number" @value={{this.newCapacity}} name='capacity' />
         {{#if this.errorCapacity}}
         <span class="form-error is-visible">{{this.errorCapacity}}</span>
         {{/if}}
       </label>
       <label>Features
-        <Input input type="text" @value={{this.newFeatures}} />
+        <Input input type="text" @value={{this.newFeatures}} name='features' />
         {{#if this.errorFeatures}}
         <span class="form-error is-visible">{{this.errorFeatures}}</span>
         {{/if}}
